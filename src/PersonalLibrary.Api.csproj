@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Build">
+    <TargetFramework>$(ApiCoreTargetFramework)</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Swagger documentation">
+    <DocumentationFile>bin\$(Configuration)\$(ApiCoreTargetFramework)\PersonalLibrary.Api.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup Label="Project References">
+    <ProjectReference Include="..\PersonalLibrary.BusinessModels\PersonalLibrary.BusinessModels.csproj" />
+  </ItemGroup>
+
+
+</Project>

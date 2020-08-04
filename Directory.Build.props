@@ -1,0 +1,13 @@
+﻿<Project>
+  <PropertyGroup Label="Framework Version">
+    <ApiCoreTargetFramework>netcoreapp3.1</ApiCoreTargetFramework>
+    <ApiStandardFramework>netstandard2.0</ApiStandardFramework>
+  </PropertyGroup>
+  
+  <PropertyGroup Label="Common Options">
+    <Authors>Mladen Miljuš</Authors>
+    <Company>Mladen Miljuš</Company>
+    <RepositoryType>Git</RepositoryType>
+    <RepositoryUrl>https://github.com/MladenMiljus/PersonalLibrary.WebAPI</RepositoryUrl>
+  </PropertyGroup>
+</Project>
