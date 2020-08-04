@@ -17,6 +17,8 @@
 
   <ItemGroup Label="Project References">
     <ProjectReference Include="..\PersonalLibrary.BusinessModels\PersonalLibrary.BusinessModels.csproj" />
+    <ProjectReference Include="..\PersonalLibrary.Services.Interfaces\PersonalLibrary.Services.Interfaces\PersonalLibrary.Services.Interfaces.csproj" />
+    <ProjectReference Include="..\PersonalLibrary.Services\PersonalLibrary.Services.csproj" />
   </ItemGroup>
 
   <ItemGroup Label="Package References">

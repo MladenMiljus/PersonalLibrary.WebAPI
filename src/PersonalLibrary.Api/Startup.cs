@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using PersonalLibrary.Api.Extensions;
 
 namespace PersonalLibrary.Api
 {
@@ -41,16 +42,21 @@ namespace PersonalLibrary.Api
         {
             services.AddControllers();
 
+            services.ConfigureCors();
+            services.AddInfrastructure();
+            services.AddApplication();
+
             //Register the Swagger generator, defining 1 or more Swagger documents
+            var serviceData = Configuration.GetSection("ServiceData");
             var swaggerConfiguration = Configuration.GetSection("ServiceOptions").GetSection("SwaggerConfiguration");
             var swaggerConfigurationContact = swaggerConfiguration.GetSection("Contact");
             services.AddSwaggerGen(swaggerSetup =>
             {
                 swaggerSetup.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Version = "v1",
-                    Title = Configuration.GetSection("ServiceData")["ServiceName"],
-                    Description = Configuration.GetSection("ServiceData")["Description"],
+                    Version = serviceData["Version"],
+                    Title = serviceData["ServiceName"],
+                    Description = serviceData["Description"],
                     Contact = new OpenApiContact
                     {
                         Name = swaggerConfigurationContact["Name"],
@@ -79,6 +85,8 @@ namespace PersonalLibrary.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("CorsPolicy");
 
             //Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();

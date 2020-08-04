@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalLibrary.Api", "src\PersonalLibrary.Api\PersonalLibrary.Api.csproj", "{855E54AF-6862-4584-8D38-DC4472935732}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalLibrary.Api", "src\PersonalLibrary.Api\PersonalLibrary.Api.csproj", "{855E54AF-6862-4584-8D38-DC4472935732}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalLibrary.BusinessModels", "src\PersonalLibrary.BusinessModels\PersonalLibrary.BusinessModels.csproj", "{510CE891-44C3-4247-84A4-754E5B38153B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalLibrary.BusinessModels", "src\PersonalLibrary.BusinessModels\PersonalLibrary.BusinessModels.csproj", "{510CE891-44C3-4247-84A4-754E5B38153B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{264FC72F-1B32-4979-928F-EC00ECA9423B}"
 	ProjectSection(SolutionItems) = preProject
@@ -17,6 +17,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{875E4BB8-61FE-4D5F-9706-56C8101678A6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E36D3735-66F7-4F75-9565-E2DAE6355BED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalLibrary.DataModels", "src\PersonalLibrary.DataModels\PersonalLibrary.DataModels\PersonalLibrary.DataModels.csproj", "{3EC09F35-B0DD-4DC5-B294-BDD069B0A6BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalLibrary.Services.Interfaces", "src\PersonalLibrary.Services.Interfaces\PersonalLibrary.Services.Interfaces\PersonalLibrary.Services.Interfaces.csproj", "{9EF0C8D0-F37C-4901-8037-7AD6A9E008A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalLibrary.Services", "src\PersonalLibrary.Services\PersonalLibrary.Services.csproj", "{2E373842-B6B7-42AF-9258-40D7226E8C78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +38,18 @@ Global
 		{510CE891-44C3-4247-84A4-754E5B38153B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{510CE891-44C3-4247-84A4-754E5B38153B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{510CE891-44C3-4247-84A4-754E5B38153B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EC09F35-B0DD-4DC5-B294-BDD069B0A6BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EC09F35-B0DD-4DC5-B294-BDD069B0A6BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EC09F35-B0DD-4DC5-B294-BDD069B0A6BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EC09F35-B0DD-4DC5-B294-BDD069B0A6BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EF0C8D0-F37C-4901-8037-7AD6A9E008A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EF0C8D0-F37C-4901-8037-7AD6A9E008A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EF0C8D0-F37C-4901-8037-7AD6A9E008A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EF0C8D0-F37C-4901-8037-7AD6A9E008A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E373842-B6B7-42AF-9258-40D7226E8C78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E373842-B6B7-42AF-9258-40D7226E8C78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E373842-B6B7-42AF-9258-40D7226E8C78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E373842-B6B7-42AF-9258-40D7226E8C78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +57,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{855E54AF-6862-4584-8D38-DC4472935732} = {875E4BB8-61FE-4D5F-9706-56C8101678A6}
 		{510CE891-44C3-4247-84A4-754E5B38153B} = {875E4BB8-61FE-4D5F-9706-56C8101678A6}
+		{3EC09F35-B0DD-4DC5-B294-BDD069B0A6BF} = {875E4BB8-61FE-4D5F-9706-56C8101678A6}
+		{9EF0C8D0-F37C-4901-8037-7AD6A9E008A8} = {875E4BB8-61FE-4D5F-9706-56C8101678A6}
+		{2E373842-B6B7-42AF-9258-40D7226E8C78} = {875E4BB8-61FE-4D5F-9706-56C8101678A6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B3C80FB3-5AE9-40F8-814F-C6FC5F4DCF9B}

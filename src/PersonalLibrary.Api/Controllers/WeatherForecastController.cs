@@ -13,6 +13,7 @@ namespace PersonalLibrary.Api.Controllers
     /// Sample constructor for weather forecast mock
     /// </summary>
     [Produces(OutputProducts.Json)]
+    //[ApiExplorerSettings(IgnoreApi = true)]
     [ApiController]
     [Route(Route.Value)]
     public class WeatherForecastController : ControllerBase
@@ -39,8 +40,9 @@ namespace PersonalLibrary.Api.Controllers
         /// <returns>Mock random weather</returns>
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
-        {
+        {          
             var rng = new Random();
+            _logger.LogInformation("TestLogging.");
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
