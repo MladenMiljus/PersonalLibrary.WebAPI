@@ -36,6 +36,10 @@ namespace PersonalLibrary.Api
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.ConfigureAppConfiguration(config =>
+                    {
+                        config.AddJsonFile("manifest.json", optional: true, reloadOnChange: true);
+                    });
                 });
     }
 }

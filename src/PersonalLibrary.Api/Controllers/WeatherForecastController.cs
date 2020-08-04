@@ -9,6 +9,9 @@ using PersonalLibrary.BusinessModels;
 
 namespace PersonalLibrary.Api.Controllers
 {
+    /// <summary>
+    /// Sample constructor for weather forecast mock
+    /// </summary>
     [Produces(OutputProducts.Json)]
     [ApiController]
     [Route(Route.Value)]
@@ -21,11 +24,19 @@ namespace PersonalLibrary.Api.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
+        /// <summary>
+        /// Weather forecast controller constructor
+        /// </summary>
+        /// <param name="logger">Logger</param>
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
         }
 
+        /// <summary>
+        /// Mock GET weather forecast
+        /// </summary>
+        /// <returns>Mock random weather</returns>
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {

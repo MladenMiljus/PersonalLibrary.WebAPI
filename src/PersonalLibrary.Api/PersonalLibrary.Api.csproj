@@ -8,9 +8,19 @@
     <DocumentationFile>bin\$(Configuration)\$(ApiCoreTargetFramework)\PersonalLibrary.Api.xml</DocumentationFile>
   </PropertyGroup>
 
+  <Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
+    <ItemGroup>
+      <DocFile Include="bin\$(Configuration)\$(ApiCoreTargetFramework)\*.xml" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DocFile)" DestinationFolder="$(PublishDir)" SkipUnchangedFiles="false" />
+  </Target>
+
   <ItemGroup Label="Project References">
     <ProjectReference Include="..\PersonalLibrary.BusinessModels\PersonalLibrary.BusinessModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup Label="Package References">
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+  </ItemGroup>
 
 </Project>

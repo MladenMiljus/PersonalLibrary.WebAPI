@@ -4,4 +4,8 @@
     <TargetFramework>$(ApiStandardFramework)</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Label="Swagger documentation">
+    <DocumentationFile>bin\$(Configuration)\$(ApiCoreTargetFramework)\PersonalLibrary.BusinessModels.xml</DocumentationFile>
+  </PropertyGroup>
+
 </Project>

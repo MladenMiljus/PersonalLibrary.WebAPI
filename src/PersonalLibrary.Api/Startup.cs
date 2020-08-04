@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace PersonalLibrary.Api
 {
@@ -38,6 +40,31 @@ namespace PersonalLibrary.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            //Register the Swagger generator, defining 1 or more Swagger documents
+            var swaggerConfiguration = Configuration.GetSection("ServiceOptions").GetSection("SwaggerConfiguration");
+            var swaggerConfigurationContact = swaggerConfiguration.GetSection("Contact");
+            services.AddSwaggerGen(swaggerSetup =>
+            {
+                swaggerSetup.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = Configuration.GetSection("ServiceData")["ServiceName"],
+                    Description = Configuration.GetSection("ServiceData")["Description"],
+                    Contact = new OpenApiContact
+                    {
+                        Name = swaggerConfigurationContact["Name"],
+                        Email = swaggerConfigurationContact["Email"],
+                        Url = string.IsNullOrWhiteSpace(swaggerConfigurationContact["Url"]) ? default : new Uri(swaggerConfigurationContact["Url"])
+                    }
+                }); ;
+                //Configure Swagger to use all generated xml files of projects
+                var xmlFiles = Directory.GetFiles(AppContext.BaseDirectory, "PersonalLibrary.*.xml");
+                foreach (var xmlFile in xmlFiles)
+                {
+                    swaggerSetup.IncludeXmlComments(xmlFile);
+                }
+            });
         }
 
         // 
@@ -52,6 +79,15 @@ namespace PersonalLibrary.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            //Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            //Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+           {
+               c.SwaggerEndpoint("/swagger/v1/swagger.json", "PersonalLibrary.API v1");
+           });
 
             app.UseRouting();
 
